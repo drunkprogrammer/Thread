@@ -7,6 +7,7 @@ import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import team.ecut.shenyou.client.config.DeviceConfig;
+import team.ecut.shenyou.client.protocol.CameraProtocol;
 import team.ecut.shenyou.client.utils.StringToByteBuf;
 
 
@@ -31,6 +32,8 @@ public class DeviceHandler extends SimpleChannelInboundHandler<String> {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         System.out.println("client read: " + StringToByteBuf.getString((ByteBuf)msg));
+        CameraProtocol cameraProtocol=new CameraProtocol();
+        cameraProtocol.receiveProtocol(StringToByteBuf.getString((ByteBuf)msg));
         //DataRefresh.refreshLogs(TimeTools.nowms() + "\tReceive: \t<----\t" + StringToByteBuf.getString((ByteBuf)msg));
     }
 

@@ -14,14 +14,14 @@ public class JDialogCapturePicture {
 	static NativeLong lChannel;
 	static NativeLong lUserID;// 设备ID
 
-	public void capturePicture(NativeLong lUserID,NativeLong lChannel) {
+	public void capturePicture(NativeLong lUserID,NativeLong lChannel,int levelInt,String teamID,String postcode,String branch) {
 		System.out.println("开始截图");
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		Date date = new Date();
 		String dateString = format.format(date);
 		JDialogSaveVideoPath datePicture=new JDialogSaveVideoPath();
 		try {
-			String filePath=datePicture.saveLevelVedio(0);
+			String filePath=datePicture.saveLevelVedio(levelInt,teamID, postcode, branch);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

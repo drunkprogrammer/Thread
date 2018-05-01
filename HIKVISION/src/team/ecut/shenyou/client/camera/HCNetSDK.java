@@ -33,7 +33,7 @@ import com.sun.jna.ptr.ShortByReference;
 public interface HCNetSDK extends StdCallLibrary {
 
 	HCNetSDK INSTANCE = (HCNetSDK) Native.loadLibrary(
-			"E:\\crossfugue\\海康\\其他\\CH-HCNetSDK(Windows64)V5.3.1.22_build20170909\\CH-HCNetSDK(Windows64)V5.3.1.22_build20170909\\库文件\\HCNetSDK.dll",
+			"D:\\shenyou\\config\\HIKIVISIONLIB\\HCNetSDK.dll",
 			HCNetSDK.class);
 	/*** 宏定义 ***/
 	// 常量

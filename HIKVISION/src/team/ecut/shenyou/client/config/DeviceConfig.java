@@ -17,7 +17,7 @@ import team.ecut.shenyou.client.utils.StringToByteBuf;
  * 2018-04-02 星期一 10:23
  */
 public class DeviceConfig {
-    public static String address = "192.168.1.101";
+    public static String address = "192.168.1.100";
     public static int port = 8699;
     public static Channel deviceChannel = null;
 

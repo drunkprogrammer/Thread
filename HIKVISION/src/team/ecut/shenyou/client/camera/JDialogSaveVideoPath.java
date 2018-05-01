@@ -2,6 +2,7 @@ package team.ecut.shenyou.client.camera;
 
 /*
  * @author drunkprogrammer
+ * https://github.com/drunkprogrammer
  *
  * 类名：JDialogSaveVideoPath
  *
@@ -18,12 +19,12 @@ import java.util.Date;
 
 public class JDialogSaveVideoPath {
 
-	private static String root = "D:\\video";  //根目录
+	private static String root = "D:\\shenyou\\video";  //根目录
 	private String teamId="01";
 	private static String dateString;
 	private static String rootDir;
-	//private static String postcode="330000"; //设置在数据库的场地邮编
-	//private static String branch="01";	//分店编号 取值01-99
+	private static String postcode="330000"; //设置在数据库的场地邮编
+	private static String branch="01";	//分店编号 取值01-99
 	private static String fileName="D:\\video\\test.mp4";//保存的录像文件名
 
 
@@ -32,25 +33,21 @@ public class JDialogSaveVideoPath {
 	}
 
 
-	public JDialogSaveVideoPath(String teamId) {
+	public JDialogSaveVideoPath(String teamId,String postcode,String branch) {
 		super();
 		this.teamId = teamId;
+		this.postcode=postcode;
+		this.branch=branch;
 	}
 
-
-	private void alterRootDir() {
-		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
-		Date date = new Date();
-		dateString = format.format(date);
-		rootDir = root+"\\"+dateString;
-	}
-
-	public  String saveLevelVedio(int  levelInt) throws IOException{
-		alterRootDir();
+	//PATH: d:/shenyou/video/33000001/20180430153912/1/1.mp4
+	public  String saveLevelVedio(int levelInt,String teamID,String postcode,String branch) throws IOException{
+		this.teamId = teamId;
+		rootDir=root+"\\"+postcode+branch;
 		System.out.println("JDialogSaveVideoPath  teamId: "+teamId);
 		int level =levelInt;
 		// 团队目录
-		String groupDir =rootDir+"\\"+teamId+"\\";
+		String groupDir =rootDir+"\\"+teamID+"\\";
 		// 创建团队目录
 		dateString=groupDir+level;
 		fileName=dateString;
